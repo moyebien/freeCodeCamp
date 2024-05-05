@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Survey</title>
+    <link href="survey.css" rel="stylesheet"/>
+  </head>
+  <body>
+    <h1 id="title">Anime Survey</h1>
+    <p id="description">Please fill out this form with the required information. Thank you for your time.</p>
+    <form id="survey-form">
+      <fieldset>
+        <label id="name-label">Name: <input id="name" type="text" name="name" placeholder="First and Last name" required /></label>
+        <label id="email-label">Email: <input id="email" type="email" name="email" placeholder="Email address" required /></label>
+        <label id="number-label">Age (optional): <input id="number" type="number" name="age" placeholder="Age (in years)" min="13" max="120" />
+        </label>
+      </fieldset>
+      <fieldset>
+        <label><input type="radio" name="gender" class="inline"
+value="1"  />Male</label>
+        <label><input type="radio" name="gender" class="inline"
+value="2" />Female</label>
+      </fieldset>
+      <fieldset>
+        <label>Which anime is the best?
+          <select id="dropdown" name="best">
+            <option value="">(select one)</option>
+            <option value="1">Sailor Moon</option>
+            <option value="2">Attack on Titan</option>
+            <option value="3">HunterxHunter</option>
+            <option value="4">Jujustu Kaisen</option>
+            <option value="5">Other</option>
+          </select>
+        </label>
+</fieldset>
+     
+<fieldset>
+        <label> If you chose Other, please state your reasoning. <textarea name="reason" rows="3" cols"30" placeholder="Enter text here..."></textarea></label>
+      </fieldset>
+    
+      <fieldset>
+     <legend>Which type of genre of anime do you prefer?</legend>
+    <div class="checkboxes">
+     <label class="radio-label"><input type="checkbox" name="genre" value="1" id="one" />Shonen</label>
+    
+      <label><input type="checkbox" name="genre" value="2" />Iseki</label>
+         
+       <label><input type="checkbox" name="genre" value="4"/>Shoujo</label>
+         
+       <label><input type="checkbox" name="genre" value="5"/>Sheinen</label>
+          
+       <label><input type="checkbox" name="genre" value="6" />Iyash</label>
+             
+        <label><input type="checkbox" name="genre" value="7" />Slice of Life</label>
+        </div>
+    </fieldset> 
+
+    <input id="submit" type="submit" value="Submit" />
+    </form>   
+  </body>
+</html>

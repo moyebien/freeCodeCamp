@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="urf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Technical Documentation Page</title>
+    <link href="techdoc.css" rel="stylesheet" />
+  </head>
+
+  <body>
+
+    <nav id="navbar">
+<header>Accessibility Documentation</header>
+<ul>
+      <li><a class="nav-link" href="#What_is_accessibility?">What is accessibility?</a></li>
+      <li><a class="nav-link" href="#Implementing_accessibility_into_your_project">Implementing accessibility into your project</a></li>
+      <li><a class="nav-link" href="#Common_accessibility_issues">Common accessibility issues</a></li>
+      <li><a class="nav-link" href="#Using_native_keyboard_accessibility">Using native keyboard accessibility</a></li>
+      <li><a class="nav-link" href="#Text_alternatives">Text alternatives</a></li>
+      <li><a class="nav-link" href="#CSS">CSS</a></li>
+      <li><a class="nav-link" href="#Javascript">Javascript</a></li>
+      <li><a class="nav-link" href="#Web_Accessibility_Initiative">Web Accessibility Initiative</a></li>
+      <li><a class="nav-link" href="#Screen_Readers">Screen Readers</a></li>
+      <li><a class="nav-link" href="#Screen_reader_testing">Screen reader testing</a></li>
+       <li><a class="nav-link" href="#User_Testing">User Testing</a></li>
+    <li><a class="nav-link" href="#Accessibility_testing_checklist">Accessibility testing checklist</a></li>
+    <li><a class="nav-link" href="#Reference">Reference</a></li>
+    </ul>
+    </nav>    
+    
+
+    <main id="main-doc">
+      <section id="What_is_accessibility?" class="main-section">
+        <header>What is accessibility?</header>
+        <p>Accessibility is the practice of making your websites usable by as many people as possible. We traditionally think of this as being about people with disabilities, but the practice of making sites accessible also benefits other groups such as those using mobile devices, or those with slow network connections.</p>
+
+<p>You might also think of accessibility as treating everyone the same, and giving them equal opportunities, no matter what their ability or circumstances. Just as it is wrong to exclude someone from a physical building because they are in a wheelchair (modern public buildings generally have wheelchair ramps or elevators), it is also not right to exclude someone from a website because they have a visual impairment. We are all different, but we are all human, and therefore have the same human rights.</p>
+
+<p>Accessibility is the right thing to do. Providing accessible sites is part of the law in some countries, which can open up some significant markets that otherwise would not be able to use your services or buy your products.</p>
+
+<p>Building accessible sites benefits everyone:</p>
+        <ul>
+        <li>Semantic HTML, which improves accessibility, also improves SEO, making your site more findable.</li>
+        <li>Caring about accessibility demonstrates good ethics and morals, which improves your public image.</li>
+        <li>Other good practices that improve accessibility also make your site more usable by other groups, such as mobile phone users or those on low network speed. In fact, everyone can benefit from many such improvements.</li>
+        <li>Did we mention it is also the law in some places?</li>
+        </ul>
+      </section>
+
+      <section id="Implementing_accessibility_into_your_project" class="main-section">
+        <header>Implementing accessibility into your project</header>
+        <p> A common accessibility myth is that accessibility is an expensive "added extra" to implement on a project. This myth actually can be true if either:</p>
+        <ul>
+        <li>You are trying to "retrofit" accessibility onto an existing website that has significant accessibility issues.</li>
+        <li>You have only started to consider accessibility and uncovered related issues in the late stages of a project.</li>
+        </ul>
+        <p>If however, you consider accessibility from the start of a project, the cost of making most content accessible should be fairly minimal.</p>
+
+<p>When planning your project, factor accessibility testing into your testing regime, just like testing for any other important target audience segment (e.g., target desktop or mobile browsers). Test early and often, ideally running automated tests to pick up on programmatically detectable missing features (such as missing image alternative text or bad link text — see Element relationships and context) and doing some testing with disabled user groups to see how well more complex site features work for them. For example:</p>
+<ul>
+      <li>Is my date picker widget usable by people using screen readers?</li>
+      <li>If content updates dynamically, do visually impaired people know about it?</li>
+      <li>Are my UI buttons accessible to both keyboard and touch interface users?</li>
+      </ul>
+      </section>
+
+      <section id="Common_accessibility_issues" class="main-section">
+        <header>Common accessibility issues</header>
+        <p>In this section we'll detail some of the main issues that arise around web accessibility, connected with specific technologies, along with best practices to follow, and some quick tests you can do to see if your sites are going in the right direction.</p>
+        </section>
+
+      <section id="Using_native_keyboard_accessibility" class="main-section">
+        <header>Using native keyboard accessibility</header>
+<p>Certain HTML features can be selected using only the keyboard — this is default behavior, available since the early days of the web. The elements that have this capability are the common ones that allow user to interact with web pages, namely links, <code>button</code>s, and form elements like <code>input</code>.</p>  
+<p>You can try this out using our native-keyboard-accessibility.html example (see the source code) — open this in a new tab, and try pressing the tab key; after a few presses, you should see the tab focus start to move through the different focusable elements; the focused elements are given a highlighted default style in every browser (it differs slightly between different browsers) so that you can tell what element is focused.</p>
+<p>
+  <img src="https://developer.mozilla.org/en-US/docs/Learn/Tools_and_testing/Cross_browser_testing/Accessibility/button-focused-unfocused.png">
+</p>
+        </section>
+        
+<section id="Text_alternatives" class="main-section">
+  <header>Text alternatives</header>
+  <p>Text alternatives are very important for accessibility — if a person has a visual or hearing impairment that stops them being able to see or hear some content, then this is a problem. The simplest text alternative available is the humble <code>alt</code> attribute, which we should include on all images that contain relevant content. This should contain a description of the image that successfully conveys its meaning and content on the page, to be picked up by a screen reader and read out to the user.</p>
+  <p>Missing alt text can be tested for in a number of ways, for example using accessibility Auditing tools.</p>
+  <p>Alt text is slightly more complex for video and audio content. There is a way to define text tracks (e.g. subtitles) and display them when video is being played, in the form of the <code>track</code> element, and the WebVTT format (see Adding captions and subtitles to HTML video for a detailed tutorial). Browser compatibility for these features is fairly good, but if you want to provide text alternatives for audio or support older browsers, a simple text transcript presented somewhere on the page or on a separate page might be a good idea.</p>
+</section>
+       <section id="CSS" class="main-section">  
+         <header>CSS</header>
+        <p>CSS tends to provide a lot fewer fundamental accessibility features than HTML, but it can still do just as much damage to accessibility if used incorrectly. We have already mentioned a couple of accessibility tips involving CSS:</p>
+<ul>
+<li>Use the correct semantic elements to mark up different content in HTML; if you want to create a different visual effect, use CSS — don't abuse an HTML element to get the look you want. For example, if you want bigger text, use <code>font-size</code>, not an h1 element.</li>
+<li>Make sure your source order makes sense without CSS; you can always use CSS to style the page any way you want afterward.</li>
+<li>You should make sure interactive elements like buttons and links have appropriate focus/hover/active states set, to give the user visual clues as to their function. If you remove the defaults for stylistic reasons, make sure you include some replacement styles.</li>
+</ul>
+<p>There are a few other considerations you should take into account.</p>     
+        </section>
+
+      <section id="Javascript" class="main-section">
+  <header>Javascript</header>
+          <p>JavaScript has the same kind of problems as CSS with respect to accessibility — it can be disastrous for accessibility if used badly, or overused. We've already hinted at some accessibility problems related to JavaScript, mainly in the area of semantic HTML — you should always use appropriate semantic HTML to implement functionality wherever it is available, for example use links and buttons as appropriate. Don't use <code>div</code> elements with JavaScript code to fake functionality if at all possible — it is error-prone, and more work than using the free functionality HTML gives you.</p>
+        <p></p>
+        </section>
+
+        <section id="Web_Accessibility_Initiative" class="main-section">
+          <header>Web Accessibility Initiative</header>
+          <p>Do you need to use such complex functionality, or will plain old semantic HTML do instead? If you do need complexity, you should consider using WAI-ARIA (Accessible Rich Internet Applications), a specification that provides semantics (in the form of new HTML attributes) for items such as complex form controls and updating panels that can be understood by most browsers and screen readers.</p>
+
+<p>To deal with complex form widgets, you need to use ARIA attributes like <code>roles</code> to state what role different elements have in a widget (for example, are they a tab, or a tab panel?), <code>aria-disabled</code> to say whether a control is disabled or not, etc.</p>
+
+<p>To deal with regularly updating regions of content, you can use the <code>aria-live</code> attribute, which identifies an updating region. Its value indicates how urgently the screen reader should read it out:</p>
+
+<ul>
+<li><code>off</code>: The default. Updates should not be announced.</li>
+<li><code>polite</code>: Updates should be announced only if the user is idle.</li>
+<li><code>assertive</code>: Updates should be announced to the user as soon as possible.</li>
+<li><code>rude</code>: Updates should be announced straight away, even if this interrupts the user.</li>
+</ul>
+    </section>
+
+<section id="Screen_Readers" class="main-section">
+  <header>Screen Readers</header>
+  <p>It is definitely worth testing with a screen reader to get used to how severely visually impaired people use the Web. There are a number of screen readers available:</p>
+
+<ul>
+  <li>Some are paid-for commercial products, like JAWS (Windows) and Window Eyes (Windows).</li>
+<li>Some are free products, like NVDA (Windows), ChromeVox (Chrome, Windows, and macOS), and Orca (Linux).</li>
+<li>Some are built into the operating system, like VoiceOver (macOS and iOS), ChromeVox (on Chromebooks), and TalkBack (Android).</li>
+</ul>
+<p>Generally, screen readers are separate apps that run on the host operating system and can read not only web pages, but text in other apps as well. This is not always the case (ChromeVox is a browser extension), but usually, screen readers tend to act in slightly different ways and have different controls, so you'll have to consult the documentation for your chosen screen reader to get all the details — saying that, they all work in basically the same sort of way.</p>
+  </section>
+
+  <section id="Screen_reader_testing" class="main-section">
+    <header>Screen reader testing</header>
+    <p>Now you've gotten used to using a screen reader, we'd like you to use it to do some quick accessibility tests, to get an idea of how screen readers deal with good and bad webpage features:</p>
+<ul>
+<li>Look at good-semantics.html, and note how the headers are found by the screen reader and available to use for navigation. Now look at bad-semantics.html, and note how the screen reader gets none of this information. Imagine how annoying this would be when trying to navigate a really long page of text.</li>
+<li>Look at good-links.html, and note how they make sense when viewed out of context. This is not the case with bad-links.html — they are all just "click here".</li>
+<li>Look at good-form.html, and note how the form inputs are described using their labels because we've used <label> elements properly. In bad-form.html, they get an unhelpful label along the lines of "blank".</li>
+<li>Look at our punk-bands-complete.html example, and see how the screen reader is able to associate columns and rows of content and read them out all together because we've defined headers properly. In bad-table.html, none of the cells can be associated at all. Note that NVDA seems to behave slightly strangely when you've only got a single table on a page; you could try WebAIM's table test page instead.</li>
+<li>Have a look at the WAI-ARIA live regions example we saw earlier, and note how the screen reader will keep reading out the constantly updating section as it updates.</li>
+</ul>
+  </section>
+
+<section id="User_Testing" class="main-section">
+  <header>User Testing</header>
+  <p>
+As mentioned above, you can't rely on automated tools alone for determining accessibility problems on your site. It is recommended that when you draw up your testing plan, you should include some accessibility user groups if at all possible (see our User Testing section earlier on in the course for some more context). Try to get some screen reader users involved, some keyboard-only users, some non-hearing users, and perhaps other groups too, as suits your requirements.</p>
+</section>
+
+<section id="Accessibility_testing_checklist" class="main-section">
+<header>Accessibility testing checklist</header>
+<p>The following list provides a checklist for you to follow to make sure you've carried out the recommended accessibility testing for your project:</p>
+<ol>
+<li>Make sure your HTML is as semantically correct as possible. Validating it is a good start, as is using an Auditing tool.</li>
+<li>Check that your content makes sense when the CSS is turned off.</li>
+<li>Make sure your functionality is keyboard accessible. Test using Tab, Return/Enter, etc.</li>
+<li>Make sure your non-text content has text alternatives. An Auditing tool is good for catching such problems.</li>
+<li>Make sure your site's color contrast is acceptable, using a suitable checking tool.</li>
+<li>Make sure hidden content is visible by screen readers.</li>
+<li>Make sure that functionality is usable without JavaScript wherever possible.</li>
+<li>Use ARIA to improve accessibility where appropriate.</li>
+<li>Run your site through an Auditing tool.</li>
+<li>Test it with a screen reader.</li>
+<li>Include an accessibility policy/statement somewhere findable on your site to say what you did.</li>
+</ol>
+</section>
+
+      <section id="Reference" class="main-section"> 
+         <header>Reference</header>
+  <ul>
+          <li>All the documentation in this page is taken from <a href="https://developer.mozilla.org/en-US/docs/Web/Accessibility">MDN</a></li>
+          </ul> 
+        </section>
+
+      </main>
+  </body>
+</html> 
